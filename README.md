@@ -1,4 +1,4 @@
-# TIL(Today I Learned)
----
 
-공부 내용 정리 하자
+### 이거 참고해서 작성하세요 
+
+* https://github.com/cheese10yun/TIL
