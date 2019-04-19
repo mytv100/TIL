@@ -18,7 +18,7 @@
   * Serializer fields
   * Serializer relations
   * Validators
-  * Authentication(https://github.com/mytv100/TIL/blob/master/Django/DRF/Authentication.md)
+  * [Authentication](https://github.com/mytv100/TIL/blob/master/Django/DRF/Authentication.md)
   * Permissions
   * Caching
   * Throttling
