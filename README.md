@@ -1,10 +1,8 @@
 # Today I Learned(TIL)
 
-## Algorism
-* sth(url)
+## Algorism 
 
-## Database
-* sth(url)
+## Database 
 
 ## Django
 * DRF(Django REST Framework)
@@ -20,7 +18,7 @@
   * Serializer fields
   * Serializer relations
   * Validators
-  * Authentication
+  * Authentication(https://github.com/mytv100/TIL/blob/master/Django/DRF/Authentication.md)
   * Permissions
   * Caching
   * Throttling
