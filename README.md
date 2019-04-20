@@ -11,7 +11,7 @@
   * [Responses](https://github.com/mytv100/TIL/blob/master/Django/DRF/Responses.md)
   * [Views](https://github.com/mytv100/TIL/blob/master/Django/DRF/Views.md)
   * [GenericViews](https://github.com/mytv100/TIL/blob/master/Django/DRF/GenericViews.md)
-  * [Viewsets](https://github.com/mytv100/TIL/blob/master/Django/DRF/Viewsets.md)
+  * [ViewSets](https://github.com/mytv100/TIL/blob/master/Django/DRF/ViewSets.md)
   * [Routers](https://github.com/mytv100/TIL/blob/master/Django/DRF/Routers.md)
   * [Parsers](https://github.com/mytv100/TIL/blob/master/Django/DRF/Parsers.md)
   * [Renderers](https://github.com/mytv100/TIL/blob/master/Django/DRF/Renderers.md)
