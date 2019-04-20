@@ -6,6 +6,7 @@
 
 ## Django
 * DRF(Django REST Framework)
+  * [DRF](https://github.com/mytv100/TIL/blob/master/Django/DRF/DRF.md)
   * [Requests](https://github.com/mytv100/TIL/blob/master/Django/DRF/Requests.md)
   * [Responses](https://github.com/mytv100/TIL/blob/master/Django/DRF/Responses.md)
   * [Views](https://github.com/mytv100/TIL/blob/master/Django/DRF/Views.md)
@@ -34,7 +35,6 @@
   * [StatusCodes](https://github.com/mytv100/TIL/blob/master/Django/DRF/StatusCodes.md)
   * [Testing](https://github.com/mytv100/TIL/blob/master/Django/DRF/Testing.md)
   * [Settings](https://github.com/mytv100/TIL/blob/master/Django/DRF/Settings.md)
-  * [drf](https://github.com/mytv100/TIL/blob/master/Django/DRF/drf.md)
 ## ETC
 
 ## Python
