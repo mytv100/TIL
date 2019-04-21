@@ -13,7 +13,7 @@
 
   * Router : 각 viewset에 대한 접근을 제공할 URLs를 정의한다.
 
-#### 실행 순서.
+#### 실행 순서
  1. ViewSet에서 Serializer를 통해서 request의 형태를 만들어 준다
  2. urls.py에서 Router가 ViewSet의 view들을 url과 매칭시켜준다.
  3. API를 통해 request가 들어옴
