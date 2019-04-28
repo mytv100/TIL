@@ -163,7 +163,7 @@ class MultipleFieldLookupMixin(object):
                 filter[field] = self.kwargs[field]
         obj = get_object_or_404(queryset, **filter)  # Lookup the object
         self.check_object_permissions(self.request, obj)
-    return obj
+        return obj
 
 class RetrieveUserView(MultipleFieldLookupMixin, generics.RetrieveAPIView):
     queryset = User.objects.all()
