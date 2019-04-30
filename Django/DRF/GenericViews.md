@@ -107,7 +107,7 @@ class UserList(generics.ListCreateAPIView):
       queryset = SignupRequest.objects.filter(user=self.request.user)
       if queryset.exists():
           raise ValidationError('You have already signed up')
-      serializer.save(user.request.user)
+      serializer.save(user=self.request.user)
   ```
 * Other methods
   * GenericAPIView 사용해서 custom views 만들 때 오버라이딩 해야할 수 도있다.
