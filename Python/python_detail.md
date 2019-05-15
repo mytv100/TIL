@@ -119,4 +119,4 @@ for p in enumerate(t):
 import 부분에 대하여
 relative 알아보기
 
----
+---dd
