@@ -1,0 +1,41 @@
+# Git
+* 버전 관리
+* 백업
+* 협업
+---
+### 원격 저장소 - Remote Repository
+  * github의 Repository
+
+### 로컬 저장소 - Local Repository
+  * 개인 PC의 저장소
+---
+## git 명령어
+* git log - 버전들의 목록을 보여줌
+* git status - 변경된 상태를 확인함
+* git commit - 새로운 버전을 만듦
+  * -a, --all : 모든 변경된 내역을 포함함
+  * -m [message] : commit message를 작성함
+---
+
+## Commit
+* 변경 내용을 Index에 기록(stage)한다. -> 변경 이력을 관리할 수 있다.
+
+## Work tree & Index
+* Work tree - 작업 트리 : 폴더
+* Index : 저장소와 작업 트리 사이의 공간
+
+## Push - 업로드
+* 로컬 저장소에서 변경된 이력을 원격 저장소에 공유하기 위해 업로드
+
+## Pull - 다운로드
+* 원격 저장소에서 변경된 이력을 로컬 저장소에 update하기 위해 다운로드
+
+## Fetch
+* 원격 저장소와 로컬 저장소의 변경 내역 확인
+
+## Clone
+* 원격 저장소의 내용을 복제하여 통째로 로컬 저장소로 다운로드
+
+## Merge
+* 원격 저장소에 다른 사람이 Push하여 내 로컬 저장소와 달라진 경우, 내 push가 거부된다.
+*
