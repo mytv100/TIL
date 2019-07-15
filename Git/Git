@@ -8,34 +8,42 @@
 
 ### 로컬 저장소 - Local Repository
   * 개인 PC의 저장소
+
+## Working tree & Index
+* Working tree - 작업 공간 : 아직 버전으로 만들어지기 전 단계, 수정하는 파일들
+* Staging area - 버전 관리할 파일들을 올림, 버전을 만들려는 파일들
+* Repository - 만들어진 버전
 ---
 ## git 명령어
+
+* git init . - 현재 디렉토리를 git이 버전 관리하도록 지시함
 * git log - 버전들의 목록을 보여줌
-* git status - 변경된 상태를 확인함
+  * --stat : 버전마다 변경 내역 확인
+  * -p : 버전별...? 위랑 똑같나요?
+* git status - Working tree에 있는 파일의 변경 여부를 확인함
+* git add <file or directory> - 파일을 Working tree 에서 Staging area로 올림
+* git diff - 변경된 부분(차이점)을 보여줌
+* git checkout [commit id] - Head를 [commit id]에 해당하는 시점으로 옮김
+  * [commit id] 부분에 master 입력하면 가장 최신 버전으로 돌아감
+* git reset --hard [commit id] - 원하는 버전(commit id)으로 돌아감, 수정하고 있던 것까지 지워버림,
+  수정한 것은 두고 싶으면 soft? mixed? 사용
+  * <strong>이미 공유된 버전에 대해서 리셋하면 엉키는 문제 발생 </strong>
+* git revert [commit id] - [commit id]로 인해 생긴 변화를 취소함, commit 자체는 그대로 둠
+  * <strong>revert는 역순으로 하나씩 진행해야함<strong>
 * git commit - 새로운 버전을 만듦
-  * -a, --all : 모든 변경된 내역을 포함함
+  * -a : 한 번 "git add" 명령어를 사용하여 tracked 상태로 만든 파일을 commit과 동시에 add할 수 있다.
+  (한 번이라도 tracked 시키지 않은 파일(올라가길 원하지 않는 파일)들을 배제할 수 있다.)
   * -m [message] : commit message를 작성함
+* Push - 로컬 저장소에서 변경된 이력을 원격 저장소에 공유하기 위해 업로드
+* Pull - 원격 저장소에서 변경된 이력을 로컬 저장소에 update하기 위해 다운로드
+* Fetch - 원격 저장소와 로컬 저장소의 변경 내역 확인
+* Clone - 원격 저장소의 내용을 복제하여 통째로 로컬 저장소로 다운로드
+* Merge - 원격 저장소에 다른 사람이 Push하여 내 로컬 저장소와 달라진 경우, 내 push가 거부된다.
 ---
+## etc
 
-## Commit
-* 변경 내용을 Index에 기록(stage)한다. -> 변경 이력을 관리할 수 있다.
-
-## Work tree & Index
-* Work tree - 작업 트리 : 폴더
-* Index : 저장소와 작업 트리 사이의 공간
-
-## Push - 업로드
-* 로컬 저장소에서 변경된 이력을 원격 저장소에 공유하기 위해 업로드
-
-## Pull - 다운로드
-* 원격 저장소에서 변경된 이력을 로컬 저장소에 update하기 위해 다운로드
-
-## Fetch
-* 원격 저장소와 로컬 저장소의 변경 내역 확인
-
-## Clone
-* 원격 저장소의 내용을 복제하여 통째로 로컬 저장소로 다운로드
-
-## Merge
-* 원격 저장소에 다른 사람이 Push하여 내 로컬 저장소와 달라진 경우, 내 push가 거부된다.
-*
+* diff tool
+* .gitignore - 버전 관리를 원하지 않는 파일들의 목록(개인 정보)
+* branch -
+* commit id 대신 사용할 수 있는 tag
+* backup
