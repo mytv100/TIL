@@ -26,6 +26,8 @@
 * git status - Working tree에 있는 파일의 변경 여부를 확인함
 * git add <file or directory> - 파일을 Working tree 에서 Staging area로 올림
 * git diff - 변경된 부분(차이점)을 보여줌
+
+
 * git checkout [commit id] - Head를 [commit id]에 해당하는 시점으로 옮김
   * [commit id] 부분에 master 입력하면 가장 최신 버전으로 돌아감
 * git reset --hard [commit id] - 원하는 버전(commit id)으로 돌아감, 수정하고 있던 것까지 지워버림,
@@ -33,6 +35,19 @@
   * <strong>이미 공유된 버전에 대해서 리셋하면 엉키는 문제 발생 </strong>
 * git revert [commit id] - [commit id]로 인해 생긴 변화를 취소함, commit 자체는 그대로 둠
   * <strong>revert는 역순으로 하나씩 진행해야함</strong>
+
+```
+좀 더 찾아볼 것
+
+HEAD -> branch -> repository(commit, 버전)
+
+checkout : HEAD의 값을 변경하는 것
+git checkout 1(저장소) -> branch를 가리키지 않고 저장소를 가리킬 때, detached 상태에 있다고 함.
+
+reset : branch가 가리키고 있는 저장소를 변경
+
+```
+
 * git commit - 새로운 버전을 만듦
   * -a : 한 번 "git add" 명령어를 사용하여 tracked 상태로 만든 파일을 commit과 동시에 add할 수 있다.
   (한 번이라도 tracked 시키지 않은 파일(올라가길 원하지 않는 파일)들을 배제할 수 있다.)
@@ -55,6 +70,21 @@
 * master branch 와 branch B의 공통된 조상 branch를 base branch라고 함
 * master branch에서 명령어를 입력
 * git merge B - B를 master에 합쳐서 새로운 master 생성
+* 충돌(같은 곳을 양 쪽에서 수정했을 때) 일어나면, 수동으로 해야함
+  * 2way merge - 병합할 branch들끼리만 비교
+  * 3way merge - 병합할 branch들과 base branch까지 비교
+
+* 외부 Merge 도구
+  * P4Merge
+  * git config --global merge.tool p4mergetool
+  * git config --global mergetool.p4mergetool.path "path"
+  * git mergetool
+
+### additional
+* git workflow
+* git flow
+* cherry-pick : 부분적 병합
+* rebase : 병합할 branch를 음.. rebase해서 --> 더 공부해서 작성하자 정확히 못쓰겠다.
 
 ---
 ## etc
