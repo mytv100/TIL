@@ -16,8 +16,11 @@
 ---
 ## git 명령어
 
-* git init . - 현재 디렉토리를 git이 버전 관리하도록 지시함
+* git init [directory] - 해당 디렉토리를 git이 버전 관리하도록 지시함
 * git log - 버전들의 목록을 보여줌
+  * --all : 모든 브랜치가 보임
+  * --graph : 시각적으로 표현
+  * -- oneline : 한 줄로 간단하게 표현
   * --stat : 버전마다 변경 내역 확인
   * -p : 버전별...? 위랑 똑같나요?
 * git status - Working tree에 있는 파일의 변경 여부를 확인함
@@ -29,21 +32,34 @@
   수정한 것은 두고 싶으면 soft? mixed? 사용
   * <strong>이미 공유된 버전에 대해서 리셋하면 엉키는 문제 발생 </strong>
 * git revert [commit id] - [commit id]로 인해 생긴 변화를 취소함, commit 자체는 그대로 둠
-  * <strong>revert는 역순으로 하나씩 진행해야함<strong>
+  * <strong>revert는 역순으로 하나씩 진행해야함</strong>
 * git commit - 새로운 버전을 만듦
   * -a : 한 번 "git add" 명령어를 사용하여 tracked 상태로 만든 파일을 commit과 동시에 add할 수 있다.
   (한 번이라도 tracked 시키지 않은 파일(올라가길 원하지 않는 파일)들을 배제할 수 있다.)
   * -m [message] : commit message를 작성함
+  * --amend : commit message 수정
 * Push - 로컬 저장소에서 변경된 이력을 원격 저장소에 공유하기 위해 업로드
 * Pull - 원격 저장소에서 변경된 이력을 로컬 저장소에 update하기 위해 다운로드
 * Fetch - 원격 저장소와 로컬 저장소의 변경 내역 확인
 * Clone - 원격 저장소의 내용을 복제하여 통째로 로컬 저장소로 다운로드
 * Merge - 원격 저장소에 다른 사람이 Push하여 내 로컬 저장소와 달라진 경우, 내 push가 거부된다.
 ---
+## branch
+  * 하나의 프로그램을 각기 다른 방향으로 발전시킬 때
+  * branch들을 병합할 때, 같은 파일의 같은 부분을 수정할 경우 conflict(충돌) 발생
+  * git branch - branch 목록을 보여줌
+    * git branch [name] : [name] branch를 생성함
+  * git checkout [name] : branch를 [name] branch로 변경함
+
+## Merge
+* master branch 와 branch B의 공통된 조상 branch를 base branch라고 함
+* master branch에서 명령어를 입력
+* git merge B - B를 master에 합쳐서 새로운 master 생성
+
+---
 ## etc
 
 * diff tool
 * .gitignore - 버전 관리를 원하지 않는 파일들의 목록(개인 정보)
-* branch -
 * commit id 대신 사용할 수 있는 tag
 * backup
