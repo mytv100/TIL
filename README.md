@@ -5,6 +5,9 @@
 ## Database
 
 ## Django
+* Django
+  * [Django](https://github.com/mytv100/TIL/blob/master/Django/Django/django.md)
+
 * DRF(Django REST Framework)
   * [DRF](https://github.com/mytv100/TIL/blob/master/Django/DRF/DRF.md)
   * [Requests](https://github.com/mytv100/TIL/blob/master/Django/DRF/Requests.md)
