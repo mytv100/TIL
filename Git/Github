@@ -1,1 +1,23 @@
-# h1
+## git hosting
+  * GitLab
+  * GitHub
+
+## 프로토콜
+* HTTP : 보안쪽 부족, 불편, 배울 필요가 없음
+* SSH : 보안쪽으로 강력, 편함, 배울 게 많음
+
+
+## github와 연결
+* git remote add origin(별명) https://github.com/[id] /repository.git
+  * 원격 저장소 연결하는 명령어
+* git remote -v
+  * 원격 저장소 주소 보기
+* git push --set-upstream origin master
+  * 어떤 원격 저장소와 연결할지 설정하는 명령어
+  * github의 id와 password 입력
+* git push -u origin master
+  * 로컬 저장소에서 변경된 이력을 원격 저장소에 공유하기 위해 업로드
+* Pull - 원격 저장소에서 변경된 이력을 로컬 저장소에 update하기 위해 다운로드
+* Fetch - 원격 저장소와 로컬 저장소의 변경 내역 확인
+* Clone - 원격 저장소의 내용을 복제하여 통째로 로컬 저장소로 다운로드
+* Merge - 원격 저장소에 다른 사람이 Push하여 내 로컬 저장소와 달라진 경우, 내 push가 거부된다.
