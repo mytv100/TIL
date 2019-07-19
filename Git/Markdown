@@ -12,6 +12,8 @@ h2
 ###### h6
 
 ---
+normal
+
 <em>em
 
 <strong>strong
@@ -22,6 +24,8 @@ h2
 
 > 인용
 >> 인용
+>>> 또 되나
+>>>>또 되네
 
 ___
 
@@ -49,6 +53,10 @@ ul
 
 <http://guswnsxodlf.github.io/how-to-write-markdown>
 
+http://guswnsxodlf.github.io/how-to-write-markdown
+
+
+
 
 ***
 
@@ -62,4 +70,25 @@ _가_
 __가__
 ~~가~~
 
-![대체 문자열](/example/path/img.jpg "Optional title")
+![대체 문자열](./noimage.png)
+
+---
+테이블
+
+
+|값|의미|기본값|
+|---|:---:|---:|
+|`static`| 유형(기준) 없음 / 배치 불가능 |`static`|
+|`relative`| 요소 자신을 기준으로 배치 ||
+|`absoulte`| 위치 상 부모(조상)요소를 기준으로 배치 ||
+|`fixed`| 브라우저 창을 기준으로 배치 ||
+
+
+양쪽 끝 | 생략 가능
+
+: -> 정렬 기준, 좌측, 우측, 중앙 정렬
+
+---
+
+Raw HTML 사용 가능
+<br> 이나 enter * 2로 줄바꿈
