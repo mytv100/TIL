@@ -34,7 +34,7 @@
 * 현재 위치한 커밋에서 다른 커밋으로 이동하는 것
 * 다른 브랜치의 커밋으로도 이동할 수 있다.
 
-## Merge
+### Merge
 * branch들을 병합함.
 * branch A와 branch B의 공통된 조상 branch를 base branch라고 함
 * A branch에서 명령어를 입력
@@ -50,46 +50,23 @@
   * git config --global mergetool.p4mergetool.path "path"
   * git mergetool
 
-## Reset
-*
+## Reset & Revert
+* 잘못된 commit을 생성했을 때, 이전 상태로 돌아가기 위해 사용
 
-## Revert
-*
+[간단한 설명] <http://www.devpools.kr/2017/01/31/%EA%B0%9C%EB%B0%9C%EB%B0%94%EB%B3%B4%EB%93%A4-1%ED%99%94-git-back-to-the-future/>
+### Reset
+* 돌아가고 싶은 커밋을 입력함
+* <strong>이미 공유된 버전에 대해서 리셋하면 엉키는 문제 발생 </strong>
+  * --hard
+  * --mixed
+  * --soft
 
----
-## git 명령어
+### Revert
+* 취소하고 싶은 커밋을 입력함
+* <strong>revert는 역순으로 하나씩 진행해야함 or 범위형으로 줄 수 있음</strong>
 
-* git init [directory] - 해당 디렉토리를 git이 버전 관리하도록 지시함
-* git log - 버전들의 목록을 보여줌
-  * --all : 모든 브랜치가 보임
-  * --graph : 시각적으로 표현
-  * -- oneline : 한 줄로 간단하게 표현
-  * --stat : 버전마다 어느 파일에서 얼마나 변경 되었는지 확인
-  * -p : 버전별로 내용(코드) 상의 차이점을 보여줌
-* git reflog : git에서 내린 모든 명령과 버전들 볼 수 있음
-  * reset --hard로 지운 commit의 id도 확인 가능 -> 복구 가능
-* git status - Working tree에 있는 파일의 변경 여부를 확인함
-* git add <file or directory> - 파일을 Working tree 에서 Staging area로 올림
-* git diff - 변경된 부분(차이점)을 보여줌
-
-* git branch - branch 목록을 보여줌
-  * git branch [name] : [name] branch를 생성함
-* git checkout [name] : branch를 [name] branch로 변경함
-
-* git checkout [commit id] - Head를 [commit id]에 해당하는 시점으로 옮김
-  * [commit id] 부분에 master 입력하면 가장 최신 버전으로 돌아감
-* git reset --hard [commit id] - 원하는 버전(commit id)으로 돌아감, 수정하고 있던 것까지 지워버림,
-  수정한 것은 두고 싶으면 soft? mixed? 사용
-  * <strong>이미 공유된 버전에 대해서 리셋하면 엉키는 문제 발생 </strong>
-* git revert [commit id] - [commit id]로 인해 생긴 변화를 취소함, commit 자체는 그대로 둠
-  * <strong>revert는 역순으로 하나씩 진행해야함</strong>
-
+## Reset과 Revert의 차이
 ```
-좀 더 찾아볼 것
-
-reset [commit id] 돌아가길 원하는 커밋 위치
-revert [commit id] 되돌릴 커밋 위치
-
 [예시]
 A - B - C - D(HEAD)
 1   1   1   1
@@ -101,12 +78,17 @@ git reset --hard B
 git revert D, git revert C
 이렇게 하면 된다.
 
-위의 예에서 2번 코드를 제거해야 하는데, D에서 2번 코드에 ",4"라는 코드를 추가했다.
+위의 예에서 2번 코드를 제거해야 하는데, D에서 2번 코드에 ",4" 라는 코드를 추가했다.
 -> 충돌이 발생한다. => 3-way merge로 해결
 B를 base로 선택하고 A와 D의 코드 비교
 
+* git reset --hard [commit id] - 원하는 버전(commit id)으로 돌아감, commit 자체를 삭제함
+  * commit id를 알면 복구 가능
+* git revert [commit id] - [commit id]로 인해 생긴 변화를 취소함, commit 자체는 그대로 둠
+```
 
-
+## Reset과 Checkout의 차이
+```
 HEAD -> branch -> repository(commit, 버전)
 
 checkout : HEAD의 값을 변경하는 것 => master가 변경되지 않음
@@ -119,12 +101,38 @@ reset : branch가 가리키고 있는 저장소를 변경 => master가 변경됨
   * --soft : repository만 되돌림
 ```
 
+---
+## git 명령어
+
+* git init [directory] - 해당 디렉토리를 git이 버전 관리하도록 지시함
+* git log - 버전들의 목록을 보여줌
+  * --all : 모든 브랜치가 보임
+  * --graph : 시각적으로 표현
+  * -- oneline : 한 줄로 간단하게 표현
+  * --stat : 버전마다 어느 파일에서 얼마나 변경 되었는지 확인
+  * -p : 버전별로 내용(코드) 상의 차이점을 보여줌
+
+
+* git reflog : git에서 내린 모든 명령과 버전들 볼 수 있음
+  * reset --hard로 지운 commit의 id도 확인 가능 -> 복구 가능
+* git status - Working tree에 있는 파일의 변경 여부를 확인함
+* git add <file or directory> - 파일을 Working tree 에서 Staging area로 올림
+* git diff - 변경된 부분(차이점)을 보여줌
+
+
+* git branch - branch 목록을 보여줌
+  * git branch [name] : [name] branch를 생성함
+* git checkout [name] : branch를 [name] branch로 변경함
+
+
+* git checkout [commit id] - Head를 [commit id]에 해당하는 시점으로 옮김
+  * [commit id] 부분에 master 입력하면 가장 최신 버전으로 돌아감
+
 * git commit - 새로운 버전을 만듦
   * -a : 한 번 "git add" 명령어를 사용하여 tracked 상태로 만든 파일을 commit과 동시에 add할 수 있다.
   (한 번이라도 tracked 시키지 않은 파일(올라가길 원하지 않는 파일)들을 배제할 수 있다.)
   * -m [message] : commit message를 작성함
   * --amend : commit message 수정
-
 
 ---
 ## etc
