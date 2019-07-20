@@ -43,12 +43,18 @@
   * 2way merge - 병합할 branch들끼리만 비교
   * 3way merge - 병합할 branch들과 base branch까지 비교
 
-<strong>
+
 * 외부 Merge 도구
   * P4Merge
   * git config --global merge.tool p4mergetool
   * git config --global mergetool.p4mergetool.path "path"
   * git mergetool
+
+## Reset
+*
+
+## Revert
+*
 
 ---
 ## git 명령어
@@ -58,8 +64,8 @@
   * --all : 모든 브랜치가 보임
   * --graph : 시각적으로 표현
   * -- oneline : 한 줄로 간단하게 표현
-  * --stat : 버전마다 변경 내역 확인
-  * -p : 버전별...? 위랑 똑같나요?
+  * --stat : 버전마다 어느 파일에서 얼마나 변경 되었는지 확인
+  * -p : 버전별로 내용(코드) 상의 차이점을 보여줌
 * git reflog : git에서 내린 모든 명령과 버전들 볼 수 있음
   * reset --hard로 지운 commit의 id도 확인 가능 -> 복구 가능
 * git status - Working tree에 있는 파일의 변경 여부를 확인함
@@ -119,18 +125,17 @@ reset : branch가 가리키고 있는 저장소를 변경 => master가 변경됨
   * -m [message] : commit message를 작성함
   * --amend : commit message 수정
 
-### additional
+
+---
+## etc
+
 * git workflow
 * git flow
 * cherry-pick : 부분적 병합
 * rebase : 병합할 branch를 음.. rebase해서 --> 더 공부해서 작성하자 정확히 못쓰겠다.
 
----
-## etc
-
 * diff tool
 * .gitignore - 버전 관리를 원하지 않는 파일들의 목록(개인 정보)
 * commit id 대신 사용할 수 있는 tag
-* backup
 
 ---
