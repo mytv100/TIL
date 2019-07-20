@@ -3,16 +3,53 @@
 * 백업
 * 협업
 ---
-### 원격 저장소 - Remote Repository
-  * github의 Repository
+## 용어
 
-### 로컬 저장소 - Local Repository
+### Repository
+* Remote Repository - 원격 저장소
+  * github의 Repository
+* Local Repository - 지역 저장소
   * 개인 PC의 저장소
 
-## Working tree & Index
-* Working tree - 작업 공간 : 아직 버전으로 만들어지기 전 단계, 수정하는 파일들
-* Staging area - 버전 관리할 파일들을 올림, 버전을 만들려는 파일들
-* Repository - 만들어진 버전
+### Commit
+* 프로젝트 변경 이력
+* 여러 변경사항들의 집합
+
+### Index, Staging area
+* commit을 통해 변경사항들이 반영되기 전에 해당 변경사항들의 이력들이 저장되는 공간
+* 버전 관리할 파일들을 올림, 버전을 만들려는 파일들
+
+### Stage
+* Index에 기록하는 행위
+* commit의 변경사항 각각에 대해서 반영할지를 결정
+
+### Working tree - 작업 공간
+* 아직 버전으로 만들어지기 전 단계, 수정하는 파일들
+
+### Branch
+  * 하나의 프로그램을 각기 다른 방향으로 발전시킬 때
+  * branch들을 병합할 때, 같은 파일의 같은 부분을 수정할 경우 conflict(충돌) 발생
+
+### Checkout
+* 현재 위치한 커밋에서 다른 커밋으로 이동하는 것
+* 다른 브랜치의 커밋으로도 이동할 수 있다.
+
+## Merge
+* branch들을 병합함.
+* branch A와 branch B의 공통된 조상 branch를 base branch라고 함
+* A branch에서 명령어를 입력
+* git merge B - B를 master에 합쳐서 새로운 master 생성
+* 충돌(같은 곳을 양 쪽에서 수정했을 때) 일어나면, 수동으로 해야함
+  * 2way merge - 병합할 branch들끼리만 비교
+  * 3way merge - 병합할 branch들과 base branch까지 비교
+
+<strong>
+* 외부 Merge 도구
+  * P4Merge
+  * git config --global merge.tool p4mergetool
+  * git config --global mergetool.p4mergetool.path "path"
+  * git mergetool
+
 ---
 ## git 명령어
 
@@ -29,6 +66,9 @@
 * git add <file or directory> - 파일을 Working tree 에서 Staging area로 올림
 * git diff - 변경된 부분(차이점)을 보여줌
 
+* git branch - branch 목록을 보여줌
+  * git branch [name] : [name] branch를 생성함
+* git checkout [name] : branch를 [name] branch로 변경함
 
 * git checkout [commit id] - Head를 [commit id]에 해당하는 시점으로 옮김
   * [commit id] 부분에 master 입력하면 가장 최신 버전으로 돌아감
@@ -77,28 +117,7 @@ reset : branch가 가리키고 있는 저장소를 변경 => master가 변경됨
   * -a : 한 번 "git add" 명령어를 사용하여 tracked 상태로 만든 파일을 commit과 동시에 add할 수 있다.
   (한 번이라도 tracked 시키지 않은 파일(올라가길 원하지 않는 파일)들을 배제할 수 있다.)
   * -m [message] : commit message를 작성함
-  * --amend : commit message 수정 
----
-## branch
-  * 하나의 프로그램을 각기 다른 방향으로 발전시킬 때
-  * branch들을 병합할 때, 같은 파일의 같은 부분을 수정할 경우 conflict(충돌) 발생
-  * git branch - branch 목록을 보여줌
-    * git branch [name] : [name] branch를 생성함
-  * git checkout [name] : branch를 [name] branch로 변경함
-
-## Merge
-* master branch 와 branch B의 공통된 조상 branch를 base branch라고 함
-* master branch에서 명령어를 입력
-* git merge B - B를 master에 합쳐서 새로운 master 생성
-* 충돌(같은 곳을 양 쪽에서 수정했을 때) 일어나면, 수동으로 해야함
-  * 2way merge - 병합할 branch들끼리만 비교
-  * 3way merge - 병합할 branch들과 base branch까지 비교
-
-* 외부 Merge 도구
-  * P4Merge
-  * git config --global merge.tool p4mergetool
-  * git config --global mergetool.p4mergetool.path "path"
-  * git mergetool
+  * --amend : commit message 수정
 
 ### additional
 * git workflow
