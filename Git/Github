@@ -6,29 +6,49 @@
 * HTTP : 보안쪽 부족, 불편, 배울 필요가 없음
 * SSH : 보안쪽으로 강력, 편함, 배울 게 많음
 
+---
+# github와 연결
+---
 
-## github와 연결
+## 용어
+
+### Clone
+* 클론은 원격 저장소로부터 지역 저장소에 통째로 복제하는 것을 말함
+
+### Push
+* 지역 저장소에서 작업한 내용을 원격 저장소에 반영하는 것을 말함
+* 업로드
+
+### Pull
+* 원격 저장소에서 내 지역 저장소로 변경 사항을 반영하는 것을 말함
+* 다운로드
+
+### Fetch
+* 원격 저장소의 변경 사항을 확인만 함.
+
+### Pull request
+* push 권한이 없는 오픈 소스 프로젝트에 기여할 때
+* push로 협업을 할 경우, 다른 사람의 commit을 바로 볼 일이 많지 않아서 코드 충돌이 일어날 가능성이 많다.
+Pull request를 사용하면 이를 방지할 수 있다.
+---
+
+## git 명령어
 * git clone "저장소 주소"
-  * 지역 저장소로 원격 저장소 복제
 * git remote add origin(별명) https://github.com/[id] /repository.git
   * 원격 저장소 연결하는 명령어
 * git remote -v
   * 원격 저장소 주소 보기
-
 
 * git push --set-upstream origin master
   * 어떤 원격 저장소와 연결할지 설정하는 명령어
   * github의 id와 password 입력
 * git push -u origin master
   * 로컬 저장소에서 변경된 이력을 원격 저장소에 공유하기 위해 업로드
+  * 원격 저장소에 다른 사람이 Push하여 내 로컬 저장소와 달라진 경우, 내 push가 거부된다.
 
 
 * git pull - 원격 저장소에서 변경된 이력을 로컬 저장소에 update하기 위해 다운로드
-* git fetch - 원격 저장소와 로컬 저장소의 변경 내역 확인
-
-
-* Merge - 원격 저장소에 다른 사람이 Push하여 내 로컬 저장소와 달라진 경우, 내 push가 거부된다.
-
+* git fetch - 원격 저장소의 변경 내역을 확인해서 로컬 저장소와의 차이 확인
 
 ---
 
@@ -37,4 +57,3 @@
 * github 꼼꼼히 살펴보기
   * issue tracker
     * issue_template : issue의 틀을 지정할 수 있음
-  * pull request
