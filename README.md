@@ -5,6 +5,9 @@
 ## Database
 
 ## Django
+* Django
+  * [Django](https://github.com/mytv100/TIL/blob/master/Django/Django/django.md)
+
 * DRF(Django REST Framework)
   * [DRF](https://github.com/mytv100/TIL/blob/master/Django/DRF/DRF.md)
   * [Requests](https://github.com/mytv100/TIL/blob/master/Django/DRF/Requests.md)
@@ -36,5 +39,8 @@
   * [Testing](https://github.com/mytv100/TIL/blob/master/Django/DRF/Testing.md)
   * [Settings](https://github.com/mytv100/TIL/blob/master/Django/DRF/Settings.md)
 ## ETC
+* [Git](https://github.com/mytv100/TIL/blob/master/Git/Git.md)
+* [Github](https://github.com/mytv100/TIL/blob/master/Git/Github.md)
+* [MarkDown](https://github.com/mytv100/TIL/blob/master/Git/Markdown.md)
 
 ## Python
