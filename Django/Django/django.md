@@ -8,7 +8,7 @@ Graph models : Render a graphical overview of project or specified apps
 * so i used the 'include-model option' and it worked as i thought.
 
 ---
-### proxy model: 상속받은 모델의 테이블을 그대로 사용함 
+### proxy model: 상속받은 모델의 테이블을 그대로 사용함
 
 ```python
 class BusinessPartner(User):
@@ -18,22 +18,22 @@ class BusinessPartner(User):
 => User 테이블을 그대로 사용함.
 ---
 ### ManyToMany field
-다대다 관계에 있는 모델 사이에 
+다대다 관계에 있는 모델 사이에
 새로운 field 를 추가해주고 싶을 때 사용한다.
 ```python
 class Movie(models.Model):
     ...
-    
+
 class Actor(models.Model):
     # M2M fields 한 쪽에만 만들어주면 됨
-    movie: Movie = models.ManyToManyField( 
+    movie: Movie = models.ManyToManyField(
         Movie,
         through='ActorMovie',
         through_fields=('actor', 'movie'),
     )
 
 
-class ActorMovie(models.Model): 
+class ActorMovie(models.Model):
     actor: Actor = models.ForeignKey(
         Actor,
         on_delete=models.CASCADE
@@ -42,11 +42,11 @@ class ActorMovie(models.Model):
     movie: Movie = models.ForeignKey(
         Movie,
         on_delete=models.CASCADE
-    ) 
+    )
 ```
 
 M2M 관계에 있던 Movie 와 Actor 를
- 
+
 1대N (Actor 대 ActorMovie)
 
 1대N (Movie 대 ActorMovie)
@@ -72,7 +72,6 @@ ex)`request : Request`
 `Model.objects.all()` return get_query_set()
 
 `Model.objects.filter()` == `Model.objects.all().filter()`
--> 같은 결과 반환 
+-> 같은 결과 반환
 
 ---
-
