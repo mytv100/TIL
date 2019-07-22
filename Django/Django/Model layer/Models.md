@@ -15,3 +15,23 @@
 
 ### Field types
 * 각 필드는 적절한 Field 클래스의 인스턴스여야 한다.
+* Field의 타입은 데이터베이스에게 어떤 종류의 데이터가 저장될 것인지를 알려준다.
+
+### Field options
+* 각 필드는 특정한 인자(argument)를 갖는다.
+  * (ex) CharField -> max_length
+  * null = True or False
+  * blank = True -> form에서 빈 값 입력받을 수 있음.
+  * choices를 인자로 가지면 default form은 select box다.
+    * keyword : choice, get_FOO_display in https://docs.djangoproject.com/en/2.2/topics/db/models/
+
+### Verbose field name
+* 필드에 대해 사람이 일기 좋게 붙이는 이름
+* 지정해주지 않는다면, Django field명에서 _ 를 공백으로 변경해서 자동적으로 생성해준다.
+
+### Relationships
+* Many-to-one relationships
+  * django.db.models.ForeignKey을 사용한다.
+  * ForeignKey 필드의 이름은 모델의 이름을 소문자로 쓰는 것을 추천(장려)한다. 필수 아님
+* Many-to-Many relationships
+* One-to-one relationships
