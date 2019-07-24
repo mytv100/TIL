@@ -99,9 +99,50 @@
 ## Model attributes
 * 가장 중요한 attribute는 `Manager` 이다.
 * custom `Manager`가 없다면, 기본 이름은 objects 이다.
-* Manager는 모델 클래스로만 접근 가능하다.(모델 인스턴스로 접근 불가능)
+* `Manager`는 모델 클래스로만 접근 가능하다.(모델 인스턴스로 접근 불가능)
+  * `Manager`는 Django model에 제공되는 데이터베이스 쿼리 작업의 인터페이스다.
 
 ## Model methods
 * 거의 오버라이딩하는 메소드들
   * __str__() : 객체의 문자열 표현을 반환해주는 메소드
-  * 
+  * get_absoulte_url() : 객체를 위한 URL을 어떻게 계산해야하는지 Django에게 알려줌
+* DB에 저장이나 삭제하기 전, 후의 동작을 커스터마이징하는 메소드들
+  * save
+    * `super.save(*args, **kwargs)`가 DB에 저장되는 작업을 처리해준다.
+  * delete
+
+## Model inheritance
+### Abstract base classes
+  * 부모 클래스를 사용하여 자식 클래스가 정보를 입력받지 않아도 보유한 상태로 있길 원할 때
+  * 이 클래스는 독립적으로 사용하지 않는다.
+  * 정말 상속만을 위한 클래스 -> 일반적인 모델의 기능 X
+  * DB table 생성 X, Manger X, 인스턴스화 X, 저장 X
+
+  ```
+  class CommonInfo(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.PositiveIntegerField()
+
+    class Meta:
+        abstract = True
+
+  # Student 클래스는 name, age, home_group 3개의 필드를 가진다.
+  class Student(CommonInfo):
+    home_group = models.CharField(max_length=5)
+  ```
+
+#### Meta inheritance
+* 자식 클래스에서 Meta 클래스를 선언하지 않으면, 부모 클래스의 Meta 클래스를 상속받는다.
+* Meta 클래스를 extend하려면 `class Meta(Parent.Meta)`로 해주면 된다.
+* 추상 클래스로 사용하고 싶다면 Meta클래스 안에 `abstract = True`를 써줘야만 한다.(상속받은 경우에도 마찬가지)
+* `db_table = "db_name"`을 사용한다면, 자식 클래스들도 같은 테이블을 사용하게 된다.
+
+
+### Multi-table inheritance
+  * 이미 존재하는 모델의 상속받고, 각각의 모델이 다른 데이터베이스 테이블을 갖길 원할 때
+
+
+
+
+### Proxy models
+  * 어떤 방식으로든 모델의 필드를 변경하지 않고, 모델의 파이썬 수준의 동작만 수정하려고 할 때
