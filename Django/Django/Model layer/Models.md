@@ -139,7 +139,7 @@
   * related_name & related_query_name에 대한 설명(나중에 필요하게 되면 자세히 읽어볼 것)
     * https://docs.djangoproject.com/en/2.2/topics/db/models/#be-careful-with-related-name-and-related-query-name
     * `related_name`이 언제 쓰는건지 모르겠다.
-    
+
 ### Multi-table inheritance
   * 이미 존재하는 모델의 상속받고, 각각의 모델이 다른 데이터베이스 테이블을 갖길 원할 때
   * 자식 모델과 각 부모 모델은 자동으로 생성된 OneToOneField로 연결된다.
@@ -152,12 +152,11 @@
   모든 메타 옵션은 이미 상위 클래스에서 적용되었기 때문에, 다시 적용하면 모순된 행동만 발생한다.
   * 몇 개의 제한된 경우에만 부모로부터 behavior를 상속받는다
     * 자식이 `ordering` 이나 `get_latest_by` attribute를 명시하지 않았을 때, 이것을 부모로부터 상속받는다.
-    * 원하지 않는다면, `ordering=[]`과 같이 명시해줘야한다.
+    * 원하지 않는다면, `ordering = [] `과 같이 명시해줘야한다.
 
 #### Inheritance and reverse relations
   * 상세 설명
     * https://docs.djangoproject.com/en/2.2/topics/db/models/#inheritance-and-reverse-relations
-
 
 ### Proxy models
   * 어떤 방식으로든 모델의 필드를 변경하지 않고, 모델의 파이썬 수준의 동작만 수정하려고 할 때
