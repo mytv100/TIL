@@ -164,8 +164,17 @@
     * manager 변경
     * ordering 변경
 
+#### Base class restrictions
+  * Proxy model은 반드시 하나의 비 추상 모델 클래스를 상속받아야 한다.
+  * Proxy model은 다른 DB 테이블의 행 사이에 어떤 연결도 제공하지 않으므로, 여러 개의 비 추상 모델에서 상속받을 수 없다.
+  * Proxy model은 모델 필드를 정의하지 않으면 추상 모델 클래스를 상속받을 수 있다.
+  * 비 추상 모델 클래스를 공통의 부모로 가진 Proxy model로부터 상속받을 수 있다.
+    * 비추상 클래스 1개 O, 여러 개 X
+    * 추상 클래스 (if 모델 필드 정의 X ) O
+    * Proxy model (if 공통의 부모[비추상 클래스]) O
 
-
+#### Proxy model managers
+* 
 
 
 
