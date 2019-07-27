@@ -174,8 +174,9 @@
     * Proxy model (if 공통의 부모[비추상 클래스]) O
 
 #### Proxy model managers
-* 
+  * manager를 설정하지 않으면 부모의 manager 상속
 
+ 
 
 
 
