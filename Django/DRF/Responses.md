@@ -23,4 +23,4 @@
 
 ## Standard HttpResponse attributes
 * Response는 SimpleTemplateResponse를 상속받음 -> SimpleTemplateResponse의 attributes랑 methods 사용가능하다
-* .render() : 이 메서드는 최종 response content에 직렬화된*serialized) 데이터를 나타낸다(render).
+* .render() : 이 메서드는 최종 response content에 직렬화된(serialized) 데이터를 나타낸다(render).

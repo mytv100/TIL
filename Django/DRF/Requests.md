@@ -14,7 +14,7 @@
   * .accepted_media_type
   </br>
 * Authentication
-  * APi의 다른 부분에 다른 인증 정책을 사용할 수 있다.
+  * API의 다른 부분에 다른 인증 정책을 사용할 수 있다.
     ex) list는 IsAdminUser만 get은 IsAuthenticated만
   * .user : 인증한 사용자(django.contrib.models.User), 인증안하면 AnonymousUser
   * .auth : 추가적인 인증 contenxt (default value는 None)
