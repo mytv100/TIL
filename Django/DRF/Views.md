@@ -3,6 +3,7 @@
   * 핸들러 메소드를 통과하는 Request들은 Django의 `httpResponse` instance가 아닌 drf의 `Request` instance가 된다.
   * Response도 마찬가지다.
 
+
 ## Dispatch methods
 * view의 .dispatch() 메소드에 의해 직접 호출되는 메소드들
 * 이 메소드들은  `.get()`, `.post()`, `.put()`, `.delete()` 와 같은 핸들러 메소드들을 호출하기 전이나 후에 수행해야하는 모든 작업을 수행한다.
