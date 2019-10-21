@@ -1,11 +1,14 @@
 * Compile time - 소스 코드를 기계어로 변환하는 과정
-  * Compile error
+  * Compile error - 구문 에러(Syntax error)
 * Run time - 어떤 프로그램이 실행되는 동안의 시간
   * Runtime error
+    * ZeroDivisionError
+    * IndexError
+    * NameError
 
 ---
 
-* 런타임 환경
+* 런타임 환경(인터프리터의 구현)
 
 1. CPython
   * C로 작성된 파이썬 구현의 리퍼런스
@@ -25,4 +28,3 @@
   * 파이썬 언어의 정적 타입으로만 구현된 파이썬 인터프리터로서 통칭 RPython이라 불린다.
   * just-in-time 컴파일러와 복수의 백엔드(C, CLI, JVM)를 지원한다.
   * 벤치마크에서 CPython보다 5배나 빠르게 나왔다.
- 
