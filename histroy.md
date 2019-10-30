@@ -9,3 +9,4 @@
   * static method 공부
 * 2019-10-24 String Sequence 공부
   * 두 가지 상황 및 이슈에 대해서 공부(나중에 겪게 될 것 같다.)
+* 2019-10-30 Slice 공부
