@@ -1,11 +1,14 @@
 ## 슬라이스(slice)
 * 시퀀스를 슬라이스해서 조각으로 만듦
 * 대상
-  * 내장 타입 : list, str, bytes
+  * 내장 타입 : list, str, bytes, tuple, dictionary
   * `__getitem__` 과 `__setitem__` 메서드를 구현하는 파이썬 클래스
+  *
 
 
-* somelist[start:end] -> start 인덱스 포함, end 인덱스 미포함
+* somelist[start:end:step]
+  * start 인덱스 포함, end 인덱스 미포함, step은 몇 개씩 건너뛸 것인지 
+  * start 생략 시 0, end 생략 시 끝, step 생략 시 1
 * 리스트의 처음이나 끝부터 슬라이스할 경우 0 생략
 * 음수로 슬라이스하면 역순으로(뒤에서부터) 오프셋을 계산한다.
   * if, somelist[-0:] -> 원본 리스트의 복사본을 만듦
