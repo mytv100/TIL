@@ -13,3 +13,4 @@
   * offset이 양수일 때, 음수일 때
 * 2019-11-05 List Comprehension 공부
   * 제네레이터 표현식
+* 2019-11-07 Enumerate & Zip 공부
