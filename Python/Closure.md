@@ -21,7 +21,7 @@ def sort_priority(numbers, group):
 found = sort_priority(numbers, group)
 
 >>>
-found = False
+found = False    # True로 예상했지만 False로 나옴
 numbers = [2, 3, 5, 7, 1, 4, 6, 8]
 ```
 
@@ -40,3 +40,24 @@ numbers = [2, 3, 5, 7, 1, 4, 6, 8]
   * 변수가 이미 현재 스코프에 정의되어 있다면 새로운 값을 얻는다(할당).
   * 변수가 현재 스코프에 존재하지 않으면 변수 정의로 취급한다.
   * 새로 정의되는 변수의 스코프는 그 할당을 포함하고 있는 함수가 된다.
+
+
+* 파이썬 3에는 클로저에서 데이터를 얻어오는 nonlocal문이 있다.
+* nonlocal문 특정 변수 이름에 할당할 때 -> 스코프 탐색이 일어나야 함을 나타낸다.
+* 모듈 수준 스코프까지는 탐색할 수 없다.(전역 변수의 오염을 피하려고)
+
+```
+def sort_priority(numbers, group):
+    found = False
+    def helper(x):
+        nonlocal found    
+        if x in group:
+            found = True
+            return (0, x)
+        return (1, x)
+    numbers.sort(key=helper)
+    return found
+
+>>>
+found = True
+```
