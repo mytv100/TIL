@@ -42,6 +42,7 @@ numbers = [2, 3, 5, 7, 1, 4, 6, 8]
   * 새로 정의되는 변수의 스코프는 그 할당을 포함하고 있는 함수가 된다.
 
 
+### nonlocal
 * 파이썬 3에는 클로저에서 데이터를 얻어오는 nonlocal문이 있다.
 * nonlocal문 특정 변수 이름에 할당할 때 -> 스코프 탐색이 일어나야 함을 나타낸다.
 * 모듈 수준 스코프까지는 탐색할 수 없다.(전역 변수의 오염을 피하려고)
@@ -60,4 +61,24 @@ def sort_priority(numbers, group):
 
 >>>
 found = True
+```
+
+* 복잡해지면 helper 클래스로 살태를 감싸는 방법을 이용
+
+```
+class Sorter(object):
+    def __init__(self, group):
+        self.group = group
+        self.found = False
+
+    def __call__(self, x):
+        if x in self.group:
+            self.found = True
+            return (0, x)
+        return (1, x)
+
+sorter = Sorter(group)
+numbers.sort(key=sorter)
+assert sorter.found is True
+
 ```
