@@ -63,6 +63,22 @@ def sort_priority(numbers, group):
 found = True
 ```
 
+* 파이썬 2는 nonlocal 키워드를 지원하지 않는다.
+* 깔끔하진 않지만 일반적인 파이썬 표현 방식
+* 스코프를 탐색하는 데 사용되는 변수가 리스트, 딕셔너리, 세트, 정의한 클래스의 인스턴스일 때 적용
+```
+def sort_priority(numbers, group):
+    found = [False]    # 수정 가능한(mutable) 리스트
+    def helper(x):
+        if x in group:
+            found[0] = True
+            return (0, x)
+        return (1, x)
+    numbers.sort(key=helper)
+    return found[0]
+```
+
+
 * 복잡해지면 helper 클래스로 살태를 감싸는 방법을 이용
 
 ```
