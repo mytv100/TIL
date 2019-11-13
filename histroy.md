@@ -14,5 +14,9 @@
 * 2019-11-05 List Comprehension 공부
   * 제네레이터 표현식
 * 2019-11-07 Enumerate & Zip 공부
-* 2019-11-07 Exception procedure.md 공부
+* 2019-11-07 Exception procedure 공부
   * try/except/else/finally
+* 2019-11-09 Closure 공부
+  * scope, nonlocal문
+* 2019-11-13 Function 공부
+  * 
