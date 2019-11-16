@@ -19,4 +19,5 @@
 * 2019-11-09 Closure 공부
   * scope, nonlocal문
 * 2019-11-13 Function 공부
-  * 
+  * generator, iterator
+  
