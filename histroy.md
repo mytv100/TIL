@@ -20,4 +20,4 @@
   * scope, nonlocal문
 * 2019-11-13 Function 공부
   * generator, iterator
-  
+  * 인수를 순회할 때 방어적으로 하는 법
