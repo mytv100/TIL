@@ -217,10 +217,12 @@ remainder(20, number=7)
             except ValueError:
                 return default
         ```
+
 #### 키워드 전용 인수, 명료성 강요
 * 키워드 인수가 선택적인 동작이라서 함수를 호출하는 쪽에 키워드 인수로 의도를 명확하게 드러내라고 강요할 방법이 없다.
 * 파이썬 3에서는 키워드 전용 인수(keyword-only-argument)로 함수를 정의해서 해결할 수 있다.
 * 아래의 예시에서 인수 리스트에 있는 * 기호는 위치 인수의 끝과 키워드 전용 인수의 시작을 가리킨다.
+
 ```
 def safe_division_c(number, divisor, *,
                     ignore_overflow=False, ignore_zero_division=False):
@@ -230,6 +232,7 @@ def safe_division_c(number, divisor, *,
 safe_division_c(1, 10**500, True, False)
 >>> TypeError: safe_division_c() takes 2 positional arguments but 4 were given
 ```
+
 
 * 파이썬 2에는 키워드 전용 인수를 지정하는 명시적 문법이 없다.
 * 인수 리스트에 ** 연산자를 사용해 올바르지 않은 함수 호출을 할 때 TypeError를 일으키는 방법으로 같은 동작을 만들 수 있다.
@@ -241,5 +244,5 @@ def safe_division_d(number, divisor, **kwargs):
     ignore_zero_div = kwargs.pop('ignore_zero_division', False)
     if kwargs:
         raise TypeError('Unexpected **kwargs: %r' % kwargs)
-        
+
 ```
