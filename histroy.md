@@ -25,3 +25,4 @@
   * 키워드 인수
   * 동적 기본 인수, None, docstring
   * 키워드 전용 인수
+* 2019-11-24 Class & Inheritance 공부
