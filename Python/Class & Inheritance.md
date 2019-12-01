@@ -25,4 +25,68 @@ class WeightedGradebook(object):
         return score_sum / score_count
 ```
 
-*
+* 클래스 리펙토링
+    * 성적은 변하지 않으므로 튜플을 사용 (score, weight)
+    * 일반 튜플은 위치에 의존 -> namedtuple 타입 사용 -> 작은 불변 데이터 클래스(immutable data class)를 쉽게 정의
+    * namedtuple의 제약
+        * namedtuple로 만들 클래스에 기본 인수 값을 설정할 수 없다. -> 데이터에 선택적인 속성이 많으면 다루기 힘들다.
+        * namedtuple 인스턴스의 속성 값을 여전히 숫자로 된 인덱스와 순회 방법으로 접근할 수 있다. -> 외부 API로 노출한 경우 의도와 다르게 사용될 수 있다.
+```
+import collections
+
+# namedtuple 성적
+Grade = collections.namedtuple('Grade', ('score', 'weight'))
+
+# 성적들을 담은 단일 과목 클래스
+class Subject(object):
+    def __init__(self):
+        self._grades = []
+
+    def report_grade(self, score, weight):
+        self._grades.append(Grade(score, weight))
+
+    def average_grade(self):
+        total, total_weight = 0, 0
+        for grade in self._grades:
+            total += grade.score * grade.weight
+            total_weight += grade.weight
+        return total / total_weight
+
+# 한 학생이 공부한 과목들을 표현하는 클래스
+class Student(object):
+    def __init__(self):
+        self._subjects = {}
+
+    def subject(self, name):
+        if name not in self._subjects:
+            self._subjects[name] = Subject()
+        return self._subjects[name]
+
+    def average_grade(self):
+        total, count = 0, 0
+        for subject in self._subjects.values():
+            total += subject.average_grade()
+            count += 1
+        return total / count
+
+# 학생의 이름을 키로 사용해 동적으로 모든 학생을 담는 컨테이너
+class Gradebook(object):
+    def __init__(self):
+        self._students = {}
+
+    def student(self, name):
+        if name not in self._students:
+            self._students[name] = Student()
+        return self._students[name]
+
+
+book = Gradebook()
+albert = book.student('Albert Einstein')
+math = albert.subject('Math')
+math.report_grade(80, 0.10)
+# ...
+print(albert.average_grade())
+
+>>>
+81.5
+```
