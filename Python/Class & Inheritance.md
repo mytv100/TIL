@@ -90,3 +90,23 @@ print(albert.average_grade())
 >>>
 81.5
 ```
+
+#### 인터페이스가 간단하다면 클래스 대신 함수를 받자
+* 후크(hook) : 함수를 넘겨서 동작을 사용자화하는 기능
+    * 파이썬이 후크로 동작하는 이유 : 일급 함수
+* defaultdict 클래스 : 찾을 수 없는 키에 접근할 때마다 호출될 함수를 받음.
+* 기본값 후크를 defaultdict에 넘겨서 찾을 수 없는 키의 총 개수를 세는 방법
+    1. 상태 보존 클로저
+
+```
+current = {'green' : 12, 'blue' : 3}
+increments = [
+    ('red', 5),
+    ('blue', 17),
+    ('orange', 9),
+]
+# 상태 보존 클로저를 기본값 후크로 사용하는 헬퍼 함수
+def increment_with_report(current, increments):
+    added_count = 0
+result = defaultdict(log_missing, current)
+```
