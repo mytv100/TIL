@@ -105,8 +105,27 @@ increments = [
     ('blue', 17),
     ('orange', 9),
 ]
+
 # 상태 보존 클로저를 기본값 후크로 사용하는 헬퍼 함수
 def increment_with_report(current, increments):
     added_count = 0
-result = defaultdict(log_missing, current)
+
+    def missing():
+        nonlocal added_count # 상태 보존 클로저
+        added_count += 1
+        return 0
+
+    result = defaultdict(missing, current)
+    for key, amount in increments:
+        result[key] += amount
+
+    return result, added_count
+
+result, count = increment_with_report(current, increments)
+assert count == 2
 ```
+
+    2. 보존할 상태를 클래스화하는 작은 클래스를 정의
+
+asd
+    sd
